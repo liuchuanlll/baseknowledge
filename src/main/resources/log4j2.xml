@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="provider" packages="com.icbc.hz1.common.log">
+	<properties>
+		<property name="provider.log.home">logs/f-gpm-pledge</property>
+		<property name="provider.log.backup.home">logs/f-gpm-pledge</property>
+		<property name="provider.pattern">%d{yyyy-MM-dd}T%d{HH:mm:ss,SSS}+0800#@#[%X{traceId}/%X{spanId}]#@#%t#@#%X{callingMethods}%m%n</property>
+		<property name="provider.patternIcbc">%d{yyyy-MM-dd}T%d{HH:mm:ss,SSS}+0800#@#[%X{traceId}/%X{spanId}]#@#%t#@#%C.%M:%F:%L%m%n</property>
+		<property name="provider.patternTrans">%m%n</property>
+		<property name="provider.charset">utf-8</property>
+		<property name="max.file.size">50MB</property>
+		<property name="max.backup.file.count">1</property>
+	</properties>
+
+	<Appenders>
+		<Console name="stdout" target="SYSTEM_OUT" ignoreExceptions="false">
+			<PatternLayout>
+				<pattern>${provider.pattern}</pattern>
+			</PatternLayout>
+		</Console>
+
+		<RollingFile name="file.common.appender" fileName="${provider.log.home}/common.log"
+					 filePattern="${provider.log.backup.home}/common.%i.bak.log"
+					 immediateFlush="false" append="true">
+			<PatternLayout>
+				<charset>${provider.charset}</charset>
+				<pattern>${provider.patternIcbc}</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="${max.file.size}" />
+			</Policies>
+			<DefaultRolloverStrategy max="${max.backup.file.count}" min="${max.backup.file.count}" />
+		</RollingFile>
+		<Async name="async.common.appender">
+			<AppenderRef ref="file.common.appender" />
+		</Async>
+
+		<RollingFile name="file.interactive.appender" fileName="${provider.log.home}/interactive.log"
+			filePattern="${provider.log.backup.home}/$${date:yyyy-MM}/interactive.%d{yyyyMMdd}.%i.bak.log"
+			immediateFlush="false" append="true">
+			<PatternLayout>
+				<charset>${provider.charset}</charset>
+				<pattern>${provider.patternIcbc}</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="${max.file.size}" />
+			</Policies>
+			<DefaultRolloverStrategy max="${max.backup.file.count}" />
+		</RollingFile>
+		<Async name="async.interactive.appender">
+			<AppenderRef ref="file.interactive.appender" />
+		</Async>
+
+		<RollingFile name="file.amc.appender" fileName="${provider.log.home}/amc.log"
+					 filePattern="${provider.log.backup.home}/amc.%i.bak.log"
+					 immediateFlush="false" append="true">
+			<PatternLayout>
+				<charset>${provider.charset}</charset>
+				<pattern>${provider.patternIcbc}</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="${max.file.size}" />
+			</Policies>
+			<DefaultRolloverStrategy max="${max.backup.file.count}" min="${max.backup.file.count}" />
+		</RollingFile>
+		<Async name="async.amc.appender">
+			<AppenderRef ref="file.amc.appender" />
+		</Async>
+
+		<RollingFile name="file.core.appender" fileName="${provider.log.home}/core.log"
+					 filePattern="${provider.log.backup.home}/core.%i.bak.log"
+					 immediateFlush="false" append="true">
+			<PatternLayout>
+				<charset>${provider.charset}</charset>
+				<pattern>${provider.pattern}</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="${max.file.size}" />
+			</Policies>
+			<DefaultRolloverStrategy max="${max.backup.file.count}" />
+		</RollingFile>
+		<Async name="async.core.appender">
+			<AppenderRef ref="file.core.appender" />
+		</Async>
+
+		<RollingFile name="file.database.appender" fileName="${provider.log.home}/database.log"
+					 filePattern="${provider.log.backup.home}/database.%i.bak.log"
+					 immediateFlush="false" append="true">
+			<PatternLayout>
+				<charset>${provider.charset}</charset>
+				<pattern>${provider.pattern}</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="${max.file.size}" />
+			</Policies>
+			<DefaultRolloverStrategy max="${max.backup.file.count}" min="${max.backup.file.count}" />
+		</RollingFile>
+		<Async name="async.database.appender">
+			<AppenderRef ref="file.database.appender" />
+		</Async>
+
+		<RollingFile name="file.other.appender" fileName="${provider.log.home}/other.log"
+					 filePattern="${provider.log.backup.home}/other.%i.bak.log"
+					 immediateFlush="false" append="true">
+			<PatternLayout>
+				<charset>${provider.charset}</charset>
+				<pattern>${provider.pattern}</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="${max.file.size}" />
+			</Policies>
+			<DefaultRolloverStrategy max="${max.backup.file.count}" min="${max.backup.file.count}" />
+		</RollingFile>
+		<Async name="async.other.appender">
+			<AppenderRef ref="file.other.appender" />
+		</Async>
+		
+		<RollingFile name="file.dsr.appender" fileName="${provider.log.home}/dsr.log"
+					 filePattern="${provider.log.backup.home}/dsr.%i.bak.log"
+					 immediateFlush="false" append="true">
+			<PatternLayout>
+				<charset>${provider.charset}</charset>
+				<pattern>${provider.pattern}</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="${max.file.size}" />
+			</Policies>
+			<DefaultRolloverStrategy max="${max.backup.file.count}" min="${max.backup.file.count}" />
+		</RollingFile>
+		<Async name="async.dsr.appender">
+			<AppenderRef ref="file.dsr.appender" />
+		</Async>
+
+		<RollingFile name="file.trans.appender" fileName="${provider.log.home}/trans.log"
+					 filePattern="${provider.log.backup.home}/trans.%i.bak.log"
+					 immediateFlush="false" append="true">
+			<PatternLayout>
+				<charset>${provider.charset}</charset>
+				<pattern>${provider.patternTrans}</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="${max.file.size}" />
+			</Policies>
+			<DefaultRolloverStrategy max="${max.backup.file.count}" min="${max.backup.file.count}" />
+		</RollingFile>
+		<Async name="async.trans.appender">
+			<AppenderRef ref="file.trans.appender" />
+		</Async>
+	</Appenders>
+
+	<Loggers>
+		<!--业务模块日志-->
+		<logger name="commonLog" additivity="true">
+			<AppenderRef ref="async.common.appender" level="debug" />
+		</logger>
+
+		<!--交互日志-->
+		<logger name="interactiveLog" additivity="true">
+			<AppenderRef ref="async.interactive.appender" level="debug" />
+		</logger>
+
+		<!--应用监控日志-->
+		<logger name="amcLog" additivity="true">
+			<AppenderRef ref="async.amc.appender" level="debug" />
+		</logger>
+		<logger name="com.icbc.sirius" additivity="true">
+			<AppenderRef ref="async.amc.appender" level="debug" />
+		</logger>
+
+		<!-- 框架日志 -->
+		<Logger name="com.icbc.hz1" additivity="true">
+			<AppenderRef ref="async.core.appender" level="debug" />
+		</Logger>
+
+		<!-- druid日志 -->
+		<Logger name="com.alibaba.druid" additivity="true">
+			<AppenderRef ref="async.database.appender" level="info" />
+		</Logger>
+		
+		<!-- dsr日志 -->
+		<Logger name="dsrLog" additivity="true">
+			<AppenderRef ref="async.dsr.appender" level="debug" />
+		</Logger>
+
+		<!-- trans日志 -->
+		<Logger name="transLog" additivity="true">
+			<AppenderRef ref="async.trans.appender" level="debug" />
+		</Logger>
+
+		<!-- all -->
+		<Root level="info">
+			<AppenderRef ref="async.other.appender" />
+			<AppenderRef ref="stdout" />
+		</Root>
+	</Loggers>
+</Configuration>

@@ -1,0 +1,33 @@
+spring:
+  kafka:
+    # Kafka服务端监听地址端口，集群用逗号分隔
+    bootstrap-servers: 192.168.31.249:9092
+    consumer:
+      # 消费者组ID，在消费者实例没有指定消费者组的时候生效
+      group-id: test01
+      # 如果为真，consumer所fetch的消息的offset将会自动的同步到zookeeper。
+      enable-auto-commit: true
+      # 每次自动提交offset的时间间隔，当enable-auto-commit设置为true时生效，默认值为5000，单位ms
+      auto-commit-interval: 500
+      # kafka服务（实际是zookeeper）中没有初始化的offset时，如果offset是以下值的回应：
+      # earliest：自动复位offset为smallest的offset
+      # latest：自动复位offset为largest的offset
+      # anything  else：向consumer抛出异常
+      # none：如果整个消费者组中没有以往的offset，则抛出异常
+      auto-offset-reset: latest
+      # message的key的解码类
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      # message的value的解码类
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      # 单次消费获取数据的最大条数
+      max-poll-records: 500
+      # 每次fetch请求时，server应该返回的最小字节数。
+      # 如果没有足够的数据返回，请求会等待，直到足够的数据才会返回。默认值为1，单位bytes
+      fetch-min-size: 1
+      # 如果没有足够的数据能够满足fetch.min.bytes（fetch-min-size），
+      # 则此项配置是指在应答fetch请求之前，server会阻塞的最大时间，默认值为100，单位ms
+      fetch-max-wait: 100
+      # 如果设置为read_committed，则consumer会缓存消息，直到收到消息对应的事务控制消息。
+      # 若事务commit，则对外发布这些消息；若事务abort，则丢弃这些消息
+      # 默认值为read_uncommitted
+      isolation-level: read_uncommitted
