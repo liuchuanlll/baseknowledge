@@ -1,3 +1,5 @@
+package leetcode;
+
 /**
  * @author kfzx-liuc02
  * @version 1.0

@@ -34,26 +34,26 @@ public class day24两两交换链表节点 {
     }
     public static void Print(ListNode listNode){
         if(listNode !=null){
-            System.out.println(listNode.getData());
+            System.out.println(listNode.getVal());
             Print(listNode.getNext());
         }
     }
 
 }
 class ListNode<E>{
-    public E data;
+    public E val;
     public ListNode next;
-    public ListNode(E data){
-        this.data = data;
+    public ListNode(E val){
+        this.val = val;
     }
-    public ListNode(E data, ListNode<E> next){
-        this.data = data;
+    public ListNode(E val, ListNode<E> next){
+        this.val = val;
         this.next=next;
     }
     public ListNode(){
     }
-    public E getData(){
-        return this.data;
+    public E getVal(){
+        return this.val;
     }
     public void setNext(ListNode next) {
         this.next = next;

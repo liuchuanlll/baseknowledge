@@ -10,7 +10,8 @@
     <file url="file://$PROJECT_DIR$/src/main/NodeList/test/binsch_xuanzhuan.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/icbc/proxy/Client.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/icbc/proxy/ProxyHandler.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/kafka/ConsumerThread/ConsumerThread.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/mythread/kafka/ConsumerThread/ConsumerThread.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/mythread/kafka/ConsumerThread/ConsumerThread.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/mythread/xianchengsisuo.java" charset="UTF-8" />
   </component>
 </project>

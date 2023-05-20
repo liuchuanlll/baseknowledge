@@ -1,4 +1,4 @@
-package TreeNode;
+package leetcode;
 
 /**
  * @author kfzx-liuc02
@@ -6,18 +6,10 @@ package TreeNode;
  * @date 2022/11/10 12:31
  * @Description �ϲ�K������
  */
-class Node {
-    public int val;
-    public Node next;
-    public Node(int data){
-        this.val = data;
-    }
-    public Node(){
-    }
-}
+
 public class day23 {
-    public Node listNode(Node[] listNodes){
-        Node res=new Node(-1);
+    public ListNode listNode(ListNode[] listNodes){
+        ListNode res=new ListNode(-1);
         int length=listNodes.length;
         if(listNodes==null||length==0) return null;
         if(length==1) return listNodes[0];
@@ -29,9 +21,9 @@ public class day23 {
         }
         return listNodes[0];
     }
-    public Node listNode2(Node listNode1, Node listNode2){
-        Node res=new Node(-1);
-        Node temp=res;
+    public ListNode listNode2(ListNode<Integer> listNode1, ListNode<Integer> listNode2){
+        ListNode res=new ListNode(-1);
+        ListNode temp=res;
         if(listNode1==null) return listNode2;
         if(listNode2==null) return listNode1;
         while (listNode1!=null&&listNode2!=null){

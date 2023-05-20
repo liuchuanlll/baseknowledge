@@ -1,4 +1,4 @@
-package TreeNode;
+package leetcode;
 
 
 import java.util.LinkedList;

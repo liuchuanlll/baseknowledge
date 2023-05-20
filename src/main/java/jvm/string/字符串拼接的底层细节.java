@@ -1,5 +1,10 @@
 package jvm.string;
 
+import com.sun.jndi.rmi.registry.RegistryContextFactory;
+import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
+
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class 字符串拼接的底层细节 {
     public void test3(){
         String s1 = "a";
@@ -46,7 +51,6 @@ public class 字符串拼接的底层细节 {
         s.intern();//调用此方法之前，字符串常量池中已经存在了"1"
         String s2 = "1";
         System.out.println(s == s2);//jdk6：false   jdk7/8：false
-
         /*
          1、s3变量记录的地址为：new String("11")
          2、经过上面的分析，我们已经知道执行完pos_1的代码，在堆中有了一个new String("11")

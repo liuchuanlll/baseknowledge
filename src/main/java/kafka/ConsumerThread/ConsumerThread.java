@@ -1,4 +1,4 @@
-﻿package kafka.ConsumerThread;
+package kafka.ConsumerThread;
 
 import java.util.Collections;
 import java.util.Properties;
@@ -15,7 +15,7 @@ public class ConsumerThread implements Runnable {
 	private KafkaConsumer<String, String> consumer;
 	private int id;
 	public ConsumerThread(int id) {
-		//1��Init the Properties
+		//1Init the Properties
 		this.id = id;
 		
 		Properties props = new Properties();
@@ -29,10 +29,10 @@ public class ConsumerThread implements Runnable {
 	public void run() {
 		// TODO Auto-generated method stub
 		try {
-			//3��subscribe Topic
+			//3subscribe Topic
 			consumer.subscribe(Collections.singletonList("test"));
 			
-			//4��The poll loop
+			//4The poll loop
 			while (true) {
 				ConsumerRecords<String, String> records = consumer.poll(100);
 				for (ConsumerRecord<String, String> record : records) {

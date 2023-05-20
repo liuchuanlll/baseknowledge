@@ -1,3 +1,5 @@
+package leetcode;
+
 /**
  * @author kfzx-liuc02
  * @version 1.0
@@ -5,17 +7,17 @@
  * @Description
  */
 public class day04两个有序链表排序 {
-    Node<Integer> root,tail;
+    ListNode<Integer> root,tail;
     int foot;
 
-    public static Node paixulianbiao(Node<Integer> myNode1,Node<Integer> myNode2) {
-        Node nodeList = new Node<Integer>(-1);
-        Node nodeList2 = nodeList;
+    public static ListNode<Integer> paixulianbiao(ListNode<Integer> myNode1,ListNode<Integer> myNode2) {
+        ListNode<Integer> nodeList = new ListNode<Integer>(-1);
+        ListNode<Integer> nodeList2 = nodeList;
         if (myNode1 == null || myNode2 == null) {
             throw new RuntimeException();
         }
         while (myNode1.next != null && myNode2.next != null) {
-            if (myNode1.data <= myNode2.data) {
+            if (myNode1.val <= myNode2.val) {
                 nodeList.next = myNode1;
                 myNode1=myNode1.next;
             } else {
@@ -27,25 +29,25 @@ public class day04两个有序链表排序 {
         return nodeList2.next;
     }
     public static void main(String[] args) {
-        Node<Integer> node1=new Node<Integer>(1);
-        Node<Integer> node2=new Node<Integer>(3);
-        Node<Integer> node3=new Node<Integer>(5);
+        ListNode<Integer> node1=new ListNode<Integer>(1);
+        ListNode<Integer> node2=new ListNode<Integer>(3);
+        ListNode<Integer> node3=new ListNode<Integer>(5);
         node1.setNext(node2);
         node2.setNext(node3);
 
-        Node<Integer> node4=new Node<Integer>(1);
-        Node<Integer> node5=new Node<Integer>(2);
-        Node<Integer> node6=new Node<Integer>(4);
-        Node<Integer> node7=new Node<Integer>(6);
+        ListNode<Integer> node4=new ListNode(1);
+        ListNode<Integer> node5=new ListNode(2);
+        ListNode<Integer> node6=new ListNode(4);
+        ListNode<Integer> node7=new ListNode(6);
         node4.setNext(node5);
         node5.setNext(node6);
         node6.setNext(node7);
-        Node paixulianbiao = paixulianbiao(node1, node4);
+        ListNode paixulianbiao = paixulianbiao(node1, node4);
         Print(paixulianbiao);
     }
-    public static void Print(Node node){
+    public static void Print(ListNode node){
         if(node !=null){
-            System.out.println(node.getData());
+            System.out.println(node.getVal());
             Print(node.getNext());
         }
     }

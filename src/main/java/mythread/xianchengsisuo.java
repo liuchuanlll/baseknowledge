@@ -12,11 +12,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * @Description
  */
 public class xianchengsisuo {
-    private ReentrantReadWriteLock lock =   new ReentrantReadWriteLock();
-    private Lock readLock = lock.readLock();
-    // 写锁
-    private Lock writeLock = lock.writeLock();
-    ReentrantLock lock2=new ReentrantLock();
+
     public static void main(String[] args) {
         final Semaphore semaphore_a=new Semaphore(0);
         final Semaphore semaphore_b=new Semaphore(0);

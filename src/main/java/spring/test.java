@@ -16,6 +16,7 @@ public class test {
     }
 
     public static void main(String[] args) {
+
         int i = new test().simpleMethod();
         System.out.println(i);
     }
